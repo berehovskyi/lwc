@@ -20,15 +20,15 @@ function isObservedProperty(configProperty) {
 function getWiredStatic(wireConfig) {
     return wireConfig
         .get('properties')
-        .filter(property => !isObservedProperty(property))
-        .map(path => path.node);
+        .filter((property) => !isObservedProperty(property))
+        .map((path) => path.node);
 }
 
 function getWiredParams(t, wireConfig) {
     return wireConfig
         .get('properties')
-        .filter(property => isObservedProperty(property))
-        .map(path => {
+        .filter((property) => isObservedProperty(property))
+        .map((path) => {
             // Need to clone deep the observed property to remove the param prefix
             const clonedProperty = t.cloneDeep(path.node);
             clonedProperty.value.value = clonedProperty.value.value.slice(1);
@@ -39,7 +39,7 @@ function getWiredParams(t, wireConfig) {
 
 function buildWireConfigValue(t, wiredValues) {
     return t.objectExpression(
-        wiredValues.map(wiredValue => {
+        wiredValues.map((wiredValue) => {
             const wireConfig = [];
             if (wiredValue.adapter) {
                 wireConfig.push(
@@ -77,7 +77,7 @@ const SUPPORTED_VALUE_TO_TYPE_MAP = {
     BooleanLiteral: 'boolean',
 };
 
-const scopedReferenceLookup = scope => name => {
+const scopedReferenceLookup = (scope) => (name) => {
     const binding = scope.getBinding(name);
 
     let type;

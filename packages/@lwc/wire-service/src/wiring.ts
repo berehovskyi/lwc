@@ -164,7 +164,7 @@ export class WireEventTarget {
                 const configContext = this._context[CONTEXT_ID][CONTEXT_UPDATED];
                 const reactiveParametersGroupByHead: Record<string, Array<ReactiveParameter>> = {};
 
-                reactiveKeys.forEach(key => {
+                reactiveKeys.forEach((key) => {
                     const reactiveParameter = buildReactiveParameter(reactives[key]);
                     const reactiveParameterHead = reactiveParameter.head;
                     let configListenerMetadatas = configContext.listeners[reactiveParameterHead];
@@ -196,7 +196,7 @@ export class WireEventTarget {
                 });
 
                 // enqueue to pickup default values
-                Object.keys(reactiveParametersGroupByHead).forEach(head => {
+                Object.keys(reactiveParametersGroupByHead).forEach((head) => {
                     updated(this._cmp, reactiveParametersGroupByHead[head], configContext);
                 });
 
@@ -227,7 +227,7 @@ export class WireEventTarget {
                     .listeners;
                 const reactives = this._wireDef.params;
                 if (reactives) {
-                    Object.keys(reactives).forEach(key => {
+                    Object.keys(reactives).forEach((key) => {
                         const reactiveParameter = buildReactiveParameter(reactives[key]);
                         const configListenerMetadatas =
                             paramToConfigListenerMetadata[reactiveParameter.head];

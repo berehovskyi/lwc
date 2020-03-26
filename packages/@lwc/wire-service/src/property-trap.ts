@@ -20,7 +20,7 @@ function invokeConfigListeners(
     configListenerMetadatas: Set<ConfigListenerMetadata>,
     paramValues: any
 ) {
-    configListenerMetadatas.forEach(metadata => {
+    configListenerMetadatas.forEach((metadata) => {
         const { listener, statics, reactives } = metadata;
 
         const reactiveValues = Object.create(null);
@@ -68,7 +68,7 @@ function updatedFuture(cmp: EventTarget, configContext: ConfigContext) {
     const mutated = configContext.mutated as Set<ReactiveParameter>;
     delete configContext.mutated;
 
-    mutated.forEach(reactiveParameter => {
+    mutated.forEach((reactiveParameter) => {
         const value = getReactiveParameterValue(cmp, reactiveParameter);
         if (configContext.values[reactiveParameter.reference] === value) {
             return;
@@ -171,23 +171,23 @@ function getOverrideDescriptor(cmp: EventTarget, prop: string, callback: () => v
     if (descriptor === null || (descriptor.get === undefined && descriptor.set === undefined)) {
         let value = (cmp as any)[prop];
         enumerable = true;
-        get = function() {
+        get = function () {
             return value;
         };
-        set = function(newValue: any) {
+        set = function (newValue: any) {
             value = newValue;
             callback();
         };
     } else {
         const { set: originalSet, get: originalGet } = descriptor;
         enumerable = descriptor.enumerable;
-        set = function(newValue: any) {
+        set = function (newValue: any) {
             if (originalSet) {
                 originalSet.call(cmp, newValue);
             }
             callback();
         };
-        get = function() {
+        get = function () {
             return originalGet ? originalGet.call(cmp) : undefined;
         };
     }

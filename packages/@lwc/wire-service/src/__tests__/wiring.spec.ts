@@ -450,7 +450,7 @@ describe('WireEventTarget', () => {
         it('invokes wired method when ValueChangedEvent received', () => {
             let actual;
             const mockCmp = {
-                test: value => {
+                test: (value) => {
                     actual = value;
                 },
             };

@@ -1,10 +1,10 @@
-(function(global, factory) {
+(function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined'
         ? factory(exports)
         : typeof define === 'function' && window.define.amd
         ? window.define(['exports'], factory)
         : factory((global.Todo = {}));
-})(this, function(exports) {
+})(this, function (exports) {
     'use strict';
 
     function getSubject(initialValue, initialError) {
@@ -23,7 +23,7 @@
         }
 
         var observable = {
-            subscribe: function(obs) {
+            subscribe: function (obs) {
                 observer = obs;
                 if (initialValue) {
                     next(initialValue);
@@ -32,7 +32,7 @@
                     error(initialError);
                 }
                 return {
-                    unsubscribe: function() {},
+                    unsubscribe: function () {},
                 };
             },
         };
@@ -62,7 +62,7 @@
         // intentionally skip 5
         generateTodo(6, false),
         generateTodo(7, false),
-    ].reduce(function(acc, value) {
+    ].reduce(function (acc, value) {
         acc[value.id] = value;
         return acc;
     }, {});

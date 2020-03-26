@@ -21,7 +21,7 @@ function guid() {
         .substring(1);
 }
 
-register(Provider, eventTarget => {
+register(Provider, (eventTarget) => {
     let unsubscribeCallback;
 
     function callback(data, unsubscribe) {
@@ -52,7 +52,7 @@ register(Provider, eventTarget => {
 function createNewConsumerMeta(provider, callback) {
     // identity must be an object that can't be proxified otherwise we
     // loose the identity when tracking the value.
-    const identity = Object.freeze(_ => {
+    const identity = Object.freeze((_) => {
         throw new Error(`Invalid Invocation`);
     });
     // default value is undefined
@@ -82,7 +82,7 @@ function disconnectConsumer(eventTarget, consumerMeta) {
 }
 
 function setupNewContextProvider(eventTarget) {
-    addEventListener.call(eventTarget, UniqueEventName, event => {
+    addEventListener.call(eventTarget, UniqueEventName, (event) => {
         // this event must have a full stop when it is intercepted by a provider
         event.stopImmediatePropagation();
         // the new child provides a callback as a communication channel

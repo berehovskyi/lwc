@@ -44,7 +44,7 @@ describe('wire service', () => {
     describe('wiring process', () => {
         it('invokes adapter factory once per wire', () => {
             let wireService;
-            registerWireService(svc => {
+            registerWireService((svc) => {
                 wireService = svc;
             });
             const adapterId = () => {
@@ -69,7 +69,7 @@ describe('wire service', () => {
         });
         it('throws when adapter id is not truthy', () => {
             let wireService;
-            registerWireService(svc => {
+            registerWireService((svc) => {
                 wireService = svc;
             });
             const mockDef: ElementDef = {
@@ -86,7 +86,7 @@ describe('wire service', () => {
         });
         it('throws when adapter factory is not found', () => {
             let wireService;
-            registerWireService(svc => {
+            registerWireService((svc) => {
                 wireService = svc;
             });
             const mockDef: ElementDef = {
@@ -105,7 +105,7 @@ describe('wire service', () => {
         });
         it('throws when dot-notation reactive parameter refers to non-@wire target', () => {
             let wireService;
-            registerWireService(svc => {
+            registerWireService((svc) => {
                 wireService = svc;
             });
             const adapterId = () => {
@@ -128,7 +128,7 @@ describe('wire service', () => {
         });
         it('throws when dot-notation reactive parameter refers to @wired method', () => {
             let wireService;
-            registerWireService(svc => {
+            registerWireService((svc) => {
                 wireService = svc;
             });
             const adapterId = () => {
@@ -155,7 +155,7 @@ describe('wire service', () => {
         });
         it('throws when reactive parameter refers to own wire target', () => {
             let wireService;
-            registerWireService(svc => {
+            registerWireService((svc) => {
                 wireService = svc;
             });
             const adapterId = () => {
@@ -176,7 +176,7 @@ describe('wire service', () => {
         });
         it('throws when reactive parameter is empty', () => {
             let wireService;
-            registerWireService(svc => {
+            registerWireService((svc) => {
                 wireService = svc;
             });
             const adapterId = () => {
@@ -197,7 +197,7 @@ describe('wire service', () => {
         });
         it('throws when reactive parameter contains empty segment', () => {
             let wireService;
-            registerWireService(svc => {
+            registerWireService((svc) => {
                 wireService = svc;
             });
             const adapterId = () => {
@@ -218,7 +218,7 @@ describe('wire service', () => {
         });
         it('throws when reactive parameter ends with empty segment', () => {
             let wireService;
-            registerWireService(svc => {
+            registerWireService((svc) => {
                 wireService = svc;
             });
             const adapterId = () => {
@@ -246,7 +246,7 @@ describe('wire service', () => {
         };
         it('invokes connected listeners', () => {
             let wireService;
-            registerWireService(svc => {
+            registerWireService((svc) => {
                 wireService = svc;
             });
             const listener = jest.fn();
@@ -270,7 +270,7 @@ describe('wire service', () => {
         };
         it('invokes connected listeners', () => {
             let wireService;
-            registerWireService(svc => {
+            registerWireService((svc) => {
                 wireService = svc;
             });
             const listener = jest.fn();

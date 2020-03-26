@@ -25,7 +25,7 @@ testInvalidComponentConstructor('null', null);
 testInvalidComponentConstructor('undefined', undefined);
 testInvalidComponentConstructor('String', 'component');
 testInvalidComponentConstructor('Object', {});
-testInvalidComponentConstructor('Function', function() {});
+testInvalidComponentConstructor('Function', function () {});
 testInvalidComponentConstructor('Class not extending LightningElement', class Component {});
 
 const GLOBAL_HTML_ATTRIBUTES = [
@@ -288,7 +288,7 @@ describe('@wire', () => {
 describe('circular dependencies', () => {
     // Emulates an AMD module with circular dependency.
     function circularDependency(klass) {
-        const ctor = function() {
+        const ctor = function () {
             return klass;
         };
         ctor.__circular__ = true;

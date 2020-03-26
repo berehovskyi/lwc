@@ -78,7 +78,7 @@ export function buildCustomElementConstructor(
         // the reflection from attributes to props via attributeChangedCallback.
         static observedAttributes = ArrayMap.call(
             getOwnPropertyNames(props),
-            propName => props[propName].attr
+            (propName) => props[propName].attr
         );
     };
 }

@@ -37,7 +37,7 @@ function createContextPayload(value) {
     return value;
 }
 
-register(Provider, eventTarget => {
+register(Provider, (eventTarget) => {
     let unsubscribeCallback;
 
     function callback(value, unsubscribe) {
@@ -88,7 +88,7 @@ function disconnectConsumer(eventTarget, contextData, callback) {
 
 function setupNewContextProvider(eventTarget) {
     let contextData; // lazy initialization
-    addEventListener.call(eventTarget, UniqueEventName, event => {
+    addEventListener.call(eventTarget, UniqueEventName, (event) => {
         // this event must have a full stop when it is intercepted by a provider
         event.stopImmediatePropagation();
         // the new child provides a callback as a communication channel
@@ -108,7 +108,7 @@ function emitNewContextValue(eventTarget, newValue) {
     const contextData = getContextData(eventTarget);
     // in this example, all consumers get the same context value
     contextData.value = newValue;
-    contextData.listeners.forEach(callback =>
+    contextData.listeners.forEach((callback) =>
         callback(newValue, () => disconnectConsumer(eventTarget, contextData, callback))
     );
 }

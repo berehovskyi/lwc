@@ -1,4 +1,4 @@
-exports.app = function(cmpName) {
+exports.app = function (cmpName) {
     return `
         import { createElement } from 'lwc';
         import Cmp from 'integration/${cmpName}';
@@ -11,7 +11,7 @@ exports.app = function(cmpName) {
     `;
 };
 
-exports.todoApp = function(cmpName) {
+exports.todoApp = function (cmpName) {
     return `
         import { registerWireService, register as registerAdapter, ValueChangedEvent } from 'wire-service';
         import { createElement, register } from 'lwc';
@@ -72,7 +72,7 @@ const SHADOW_POLYFILL = `
     </script>
 `;
 
-exports.html = function(cmpName, isCompat) {
+exports.html = function (cmpName, isCompat) {
     return `
         <html>
             <head>
@@ -91,7 +91,7 @@ exports.html = function(cmpName, isCompat) {
     `;
 };
 
-exports.wireServiceHtml = function(cmpName, isCompat) {
+exports.wireServiceHtml = function (cmpName, isCompat) {
     return `
         <html>
             <head>

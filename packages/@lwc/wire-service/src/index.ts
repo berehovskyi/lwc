@@ -83,10 +83,10 @@ const wireService: Service = {
 
                 // enforce restrictions of reactive parameters
                 if (wireDef.params) {
-                    Object.keys(wireDef.params).forEach(param => {
+                    Object.keys(wireDef.params).forEach((param) => {
                         const prop = wireDef.params![param];
                         const segments = prop.split('.');
-                        segments.forEach(segment => {
+                        segments.forEach((segment) => {
                             assert.isTrue(
                                 segment.length > 0,
                                 `@wire on "${wireTarget}": reactive parameters must not be empty`
